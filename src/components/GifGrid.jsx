@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { useFetchGifs } from '../hooks/useFetchGifs';
 // import { getGifs } from '../helpers/getGifs';
 import { GifItem } from './GifItem';
+import PropTypes from 'prop-types'
 
 
 export const GifGrid = ({ category }) => {
 
   const { images, isLoading } = useFetchGifs(category);
+
 
   return (
     <>
@@ -32,4 +34,8 @@ export const GifGrid = ({ category }) => {
 
     </>
   )
+}
+
+GifGrid.propTypes = {
+  category: PropTypes.string.isRequired,
 }

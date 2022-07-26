@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+
 
 export const AddCategory = ({ onNewCategory }) => {
 
@@ -10,6 +12,7 @@ export const AddCategory = ({ onNewCategory }) => {
     }
 
     // Modificar 
+    // onSubmit para agregar la categoria y asi cambiar el estado de useState(HOOK)
     const onSubmit = (event) => {
 
         //Se limpia el valor ingresado y se le saca los espacios
@@ -32,7 +35,7 @@ export const AddCategory = ({ onNewCategory }) => {
 
     return (
 
-        <form onSubmit={(event) => onSubmit(event)}>
+        <form onSubmit={(event) => onSubmit(event)} aria-label="form" >
             <input type="text"
                 placeholder='Buscar en Google'
                 value={inputValue}
@@ -41,8 +44,13 @@ export const AddCategory = ({ onNewCategory }) => {
         </form>
 
 
-
-
-
     )
 }
+
+
+
+AddCategory.propTypes = {
+
+    onNewCategory: PropTypes.func.isRequired,
+
+};
